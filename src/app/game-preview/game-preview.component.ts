@@ -1,8 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-game-preview',
+  standalone: true, 
+  imports: [CommonModule], 
   templateUrl: './game-preview.component.html',
   styleUrls: ['./game-preview.component.scss'],
 })
@@ -36,6 +39,7 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
     } else {
       console.warn('Canvas context not available');
       console.log('Canvas element:', this.canvas?.nativeElement);
+
     }
   }
 }

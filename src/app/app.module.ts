@@ -6,19 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GamePreviewComponent } from './game-preview/game-preview.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TestPreviewComponent } from './test-preview/test-preview.component';
+
 
 @NgModule({
-  declarations: [AppComponent,
-                GamePreviewComponent,
+  declarations: [
+    AppComponent,
+    TestPreviewComponent,
+    GamePreviewComponent,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
