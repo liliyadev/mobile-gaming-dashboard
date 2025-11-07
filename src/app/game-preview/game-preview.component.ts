@@ -9,6 +9,7 @@ import { GameService } from '../services/game.service';
 export class GamePreviewComponent implements OnInit, AfterViewInit {
   @ViewChild('gameCanvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
   welcomeMessage: string = '';
+  games: any[] = [];
 
   constructor(private gameService: GameService) {}
 
@@ -16,6 +17,10 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
     this.gameService.getWelcomeMessage().subscribe(response => {
       this.welcomeMessage = response.message;
       console.log('Backend says:', response);
+    });
+
+    this.gameService.getGames().subscribe(data => {
+      this.games = data;
     });
   }
 

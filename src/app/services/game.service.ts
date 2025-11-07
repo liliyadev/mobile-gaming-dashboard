@@ -14,7 +14,7 @@ export class GameService {
     return this.http.get(`${this.apiUrl}/`);
   }
 
-  getGames(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/api/games`);
+  getGames(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/api/games`);
   }
 }
