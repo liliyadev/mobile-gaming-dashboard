@@ -16,7 +16,6 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.gameService.getWelcomeMessage().subscribe(response => {
       this.welcomeMessage = response.message;
-      console.log('Backend says:', response);
     });
 
     this.gameService.getGames().subscribe(data => {
@@ -25,10 +24,17 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const ctx = this.canvas.nativeElement.getContext('2d');
+    const canvasEl = this.canvas?.nativeElement;
+    console.log('Canvas element:', canvasEl);
+
+    const ctx = canvasEl?.getContext('2d');
+    console.log('Canvas context:', ctx);
+
     if (ctx) {
       ctx.fillStyle = 'blue';
       ctx.fillRect(10, 10, 100, 100);
+    } else {
+      console.warn('Canvas context not available');
     }
   }
 }
