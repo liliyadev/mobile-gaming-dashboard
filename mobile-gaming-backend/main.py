@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-# CORS middleware should be added before routes
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,13 +14,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Serve favicon
+@app.get("/favicon.ico")
+def favicon():
+    return FileResponse("static/favicon.ico")
+
+# Root route
 @app.get("/")
 def read_root():
     return {"message": "Hello from Mobile Gaming Backend!"}
-
-@app.get("/api/games")
-def get_games():
-    return [
-        {"id": 1, "title": "Puzzle Quest", "genre": "Strategy"},
-        {"id": 2, "title": "Speed Racer", "genre": "Arcade"}
-    ]
