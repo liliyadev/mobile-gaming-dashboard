@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-game-preview',
@@ -7,10 +8,16 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 })
 export class GamePreviewComponent implements OnInit, AfterViewInit {
   @ViewChild('gameCanvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
+  welcomeMessage: string = '';
 
-  constructor() {}
+  constructor(private gameService: GameService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.gameService.getWelcomeMessage().subscribe(response => {
+      this.welcomeMessage = response.message;
+      console.log('Backend says:', response);
+    });
+  }
 
   ngAfterViewInit(): void {
     const ctx = this.canvas.nativeElement.getContext('2d');
