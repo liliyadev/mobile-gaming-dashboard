@@ -1,0 +1,7 @@
+{
+  "name": "mobile-gaming-dashboard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

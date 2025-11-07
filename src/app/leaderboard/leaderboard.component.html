@@ -1,0 +1,14 @@
+<div class="leaderboard-wrapper" *ngIf="players" @fadeIn>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Leaderboard</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let player of players">
+            {{ player.name }} — {{ player.score }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+  </ion-card>
+</div>
