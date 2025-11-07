@@ -35,6 +35,7 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
       ctx.fillRect(10, 10, 100, 100);
     } else {
       console.warn('Canvas context not available');
+      console.log('Canvas element:', this.canvas?.nativeElement);
     }
   }
 }
