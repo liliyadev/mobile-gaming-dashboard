@@ -8,12 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GamePreviewComponent } from './game-preview/game-preview.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+                GamePreviewComponent,
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    GamePreviewComponent,
     HttpClientModule,
     BrowserAnimationsModule
   ],
