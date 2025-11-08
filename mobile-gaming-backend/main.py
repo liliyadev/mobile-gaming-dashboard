@@ -35,8 +35,36 @@ def welcome():
 # ✅ Games route
 @app.get("/games")
 def get_games():
-    return [
-        {"id": 1, "name": "Space Invaders"},
-        {"id": 2, "name": "Puzzle Quest"},
-        {"id": 3, "name": "Speed Racer"},
-    ]
+    return games
+
+@app.get("/games/{id}")
+def get_game_by_id(id: int):
+    for game in games:
+        if game["id"] == id:
+            return game
+    return {"error": "Game not found"}
+
+games = [
+    {
+        "id": 1,
+        "name": "Space Invaders",
+        "genre": "Arcade",
+        "description": "Classic alien shooter game.",
+        "thumbnailUrl": "https://example.com/space-invaders.png"
+    },
+    {
+        "id": 2,
+        "name": "Puzzle Quest",
+        "genre": "Puzzle",
+        "description": "Solve puzzles to advance through quests.",
+        "thumbnailUrl": "https://example.com/puzzle-quest.png"
+    },
+    {
+        "id": 3,
+        "name": "Speed Racer",
+        "genre": "Racing",
+        "description": "High-speed futuristic racing game.",
+        "thumbnailUrl": "https://example.com/speed-racer.png"
+    }
+]
+

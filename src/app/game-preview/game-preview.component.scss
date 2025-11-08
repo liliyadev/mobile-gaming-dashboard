@@ -1,5 +1,13 @@
 canvas {
-  border: 1px solid #ccc;
-  display: block;
-  margin: 20px 0;
+  border: 2px solid #3880ff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite ease-in-out;
 }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(56, 128, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0); }
+}
+

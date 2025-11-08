@@ -1,21 +1,22 @@
 import { Routes } from '@angular/router';
+import { GameDetailComponent } from './components/game-detail.component';
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard.page').then( m => m.DashboardPage)
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then(m => m.HomePage),
   },
   {
     path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard.page').then( m => m.DashboardPage)
+    loadComponent: () => import('./dashboard/dashboard.page').then(m => m.DashboardPage),
   },
+  {
+    path: 'games/:id',
+    component: GameDetailComponent,
+  }
 ];

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Game Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-spinner *ngIf="loading"></ion-spinner>
+
+  <div *ngIf="!loading && game">
+    <img [src]="game.thumbnailUrl" alt="{{ game.name }} thumbnail" />
+    <h2>{{ game.name }}</h2>
+    <p><strong>Genre:</strong> {{ game.genre }}</p>
+    <p><strong>Description:</strong> {{ game.description }}</p>
+  </div>
+</ion-content>

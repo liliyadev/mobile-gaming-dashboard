@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-preview',
@@ -18,7 +19,10 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
   welcomeMessage: string = '';
   games: any[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.gameService.getWelcomeMessage().subscribe(response => {
@@ -32,18 +36,18 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const canvasEl = this.canvas?.nativeElement;
-    console.log('Canvas element:', canvasEl);
-
     const ctx = canvasEl?.getContext('2d');
-    console.log('Canvas context:', ctx);
 
     if (ctx) {
       ctx.fillStyle = 'blue';
       ctx.fillRect(10, 10, 100, 100);
     } else {
       console.warn('Canvas context not available');
-      console.log('Canvas element:', this.canvas?.nativeElement);
-
     }
   }
+
+  goToGameDetail(id: number): void {
+    this.router.navigate(['/games', id]);
+  }
 }
+
