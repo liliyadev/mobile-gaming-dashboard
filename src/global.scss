@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+h1, h2, h3, h4, h5, h6,
+ion-title {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.genre-badge,
+ion-button {
+  font-family: 'Orbitron', sans-serif;
+}
+
