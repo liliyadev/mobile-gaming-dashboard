@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-game-preview',
-  standalone: true, 
+  standalone: true,
   imports: [
     HttpClientModule,
     CommonModule,
@@ -16,10 +16,11 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './game-preview.component.html',
   styleUrls: ['./game-preview.component.scss'],
 })
-export class GamePreviewComponent implements OnInit, AfterViewInit {
-  @ViewChild('gameCanvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
-  welcomeMessage: string = '';
+export class GamePreviewComponent implements OnInit {
   games: any[] = [];
+  welcomeMessage: string = '';
+  selectedGenre: string = '';
+  genres: string[] = ['Arcade', 'Puzzle', 'Strategy', 'RPG'];
 
   constructor(
     private gameService: GameService,
@@ -36,24 +37,12 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    const canvasEl = this.canvas?.nativeElement;
-    const ctx = canvasEl?.getContext('2d');
-
-    if (ctx) {
-      ctx.fillStyle = 'blue';
-      ctx.fillRect(10, 10, 100, 100);
-    } else {
-      console.warn('Canvas context not available');
-    }
-  }
-
   goToGameDetail(id: number): void {
-    this.router.navigate(['/games', id]);
+    this.router.navigate(['/game', id]);
   }
-  onImageError(event: Event) {
-  (event.target as HTMLImageElement).src = 'assets/placeholder.png';
-}
 
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/placeholder.png';
+  }
 }
 

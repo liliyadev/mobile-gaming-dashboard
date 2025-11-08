@@ -92,10 +92,7 @@ ion-card {
     object-fit: cover;
     background-color: #2a2a3d;
   }
-  ion-card img {
-  background-color: #2a2a3d;
-  }
-
+  
 }
 .genre-badge {
   padding: 4px 10px;
@@ -114,12 +111,7 @@ ion-card {
 .available-games:hover {
   box-shadow: 0 0 16px var(--primary-color);
 }
-.available-games {
-  border: 2px solid var(--primary-color);
-  padding: 16px;
-  border-radius: 12px;
-  animation: pulse 2s infinite;
-}
+
 .animated-logo img {
   width: 120px;
   animation: bounce 2s infinite ease-in-out;
@@ -128,4 +120,28 @@ ion-card {
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+.hero-section {
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+
+  img {
+    width: 120px;
+    animation: bounce 2s infinite ease-in-out;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+}
+.footer {
+  background: #1e1e2f;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
 }

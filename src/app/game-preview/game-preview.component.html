@@ -6,13 +6,23 @@
 
 <ion-content class="welcome-banner">
   <div class="animated-logo">
-  <img src="assets/gamepad-icon.png" alt="Gamepad" />
-</div>
+    <img src="assets/gamepad-icon.png" alt="Gamepad" />
+  </div>
+
+  <div class="hero-section">
+    <img src="assets/pixel-mascot.gif" alt="Mascot" />
+    <h1>Choose your next adventure.</h1>
+    <p>Built for speed, style, and scalability.</p>
+  </div>
+
+  <ion-segment [(ngModel)]="selectedGenre">
+    <ion-segment-button *ngFor="let genre of genres" [value]="genre">{{ genre }}</ion-segment-button>
+  </ion-segment>
 
   <div class="available-games">
     <h2>Available Games</h2>
 
-    <ion-card *ngFor="let game of games" (click)="goToGameDetail(game.id)">
+    <ion-card *ngFor="let game of games | genreFilter:selectedGenre" [routerLink]="['/games', game.id]">
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>
         <ion-card-subtitle>
@@ -25,3 +35,9 @@
     </ion-card>
   </div>
 </ion-content>
+<ion-footer class="footer">
+  <ion-toolbar>
+    <ion-title class="footer-text">Built by Liliya Vildanova...</ion-title>
+  </ion-toolbar>
+</ion-footer>
+

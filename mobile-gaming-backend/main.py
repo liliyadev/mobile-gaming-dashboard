@@ -67,5 +67,16 @@ games = [
         "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/speed-racer.png"
     }
 ]
+import time
+start_time = time.time()
+
+@app.get("/metrics")
+def metrics():
+    uptime = round(time.time() - start_time)
+    return {
+        "uptime_seconds": uptime,
+        "game_count": len(games),
+        "status": "OK"
+    }
 
 
