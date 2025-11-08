@@ -51,5 +51,9 @@ export class GamePreviewComponent implements OnInit, AfterViewInit {
   goToGameDetail(id: number): void {
     this.router.navigate(['/games', id]);
   }
+  onImageError(event: Event) {
+  (event.target as HTMLImageElement).src = 'assets/placeholder.png';
+}
+
 }
 

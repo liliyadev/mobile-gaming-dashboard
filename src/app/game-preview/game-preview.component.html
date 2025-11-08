@@ -5,10 +5,9 @@
 </ion-header>
 
 <ion-content class="welcome-banner">
+  <div class="animated-logo">
   <img src="assets/gamepad-icon.png" alt="Gamepad" />
-  <h1>Welcome, Player One!</h1>
-
-  <canvas #gameCanvas width="300" height="300"></canvas>
+</div>
 
   <div class="available-games">
     <h2>Available Games</h2>
@@ -21,7 +20,7 @@
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <img [src]="game.thumbnailUrl || 'assets/placeholder.png'" alt="{{ game.name }} thumbnail" />
+        <img [src]="game.thumbnailUrl" (error)="onImageError($event)" alt="{{ game.name }} thumbnail" />
       </ion-card-content>
     </ion-card>
   </div>

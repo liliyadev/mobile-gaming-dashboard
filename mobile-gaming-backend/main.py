@@ -50,21 +50,22 @@ games = [
         "name": "Space Invaders",
         "genre": "Arcade",
         "description": "Classic alien shooter game.",
-        "thumbnailUrl": "https:/calm-concha-fa16ba.netlify.app/assets/space-invaders.png"
+        "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/space-invaders.png"
     },
     {
         "id": 2,
         "name": "Puzzle Quest",
         "genre": "Puzzle",
         "description": "Solve puzzles to advance through quests.",
-        "thumbnailUrl": "https:/calm-concha-fa16ba.netlify.app/assets/puzzle-quest.png"
+        "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/puzzle-quest.png"
     },
     {
         "id": 3,
         "name": "Speed Racer",
         "genre": "Racing",
         "description": "High-speed futuristic racing game.",
-        "thumbnailUrl": "https:/calm-concha-fa16ba.netlify.app/assets/speed-racer.png"
+        "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/speed-racer.png"
     }
 ]
+
 
