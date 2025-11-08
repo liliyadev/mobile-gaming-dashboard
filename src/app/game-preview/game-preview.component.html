@@ -1,24 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Game Preview</ion-title>
+    <ion-title class="orbitron-title">Game Preview</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="welcome-box">
-  <p>{{ welcomeMessage }}</p>
+<ion-content class="welcome-banner">
+  <img src="assets/gamepad-icon.png" alt="Gamepad" />
+  <h1>Welcome, Player One!</h1>
 
   <canvas #gameCanvas width="300" height="300"></canvas>
 
-  <h2>Available Games</h2>
+  <div class="available-games">
+    <h2>Available Games</h2>
 
-  <ion-card *ngFor="let game of games" (click)="goToGameDetail(game.id)">
-  <ion-card-header>
-    <ion-card-title>{{ game.name }}</ion-card-title>
-    <ion-card-subtitle>{{ game.genre }}</ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
-    <img [src]="game.thumbnailUrl" alt="{{ game.name }} thumbnail" />
-  </ion-card-content>
-</ion-card>
-
+    <ion-card *ngFor="let game of games" (click)="goToGameDetail(game.id)">
+      <ion-card-header>
+        <ion-card-title>{{ game.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">{{ game.genre }}</span>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="game.thumbnailUrl || 'assets/placeholder.png'" alt="{{ game.name }} thumbnail" />
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

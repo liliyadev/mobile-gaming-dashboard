@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.orbitron-title,
+h1, h2 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
 canvas {
   border: 2px solid #3880ff;
   border-radius: 8px;
@@ -5,11 +13,6 @@ canvas {
   animation: pulse 2s infinite ease-in-out;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(56, 128, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0); }
-}
 .welcome-box {
   background-color: #f4f4f4;
   padding: 16px;
@@ -18,15 +21,60 @@ canvas {
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+.welcome-banner {
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+  padding: 24px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.welcome-banner img {
+  width: 64px;
+  margin-bottom: 12px;
+}
+
+.welcome-banner h1 {
+  font-size: 24px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.available-games {
+  border: 2px solid var(--primary-color);
+  padding: 16px;
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+  background-color: #2a2a3d;
+  color: #fff;
+  margin-top: 24px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0px var(--primary-color); }
+  50% { box-shadow: 0 0 12px var(--primary-color); }
+  100% { box-shadow: 0 0 0px var(--primary-color); }
+}
+@keyframes canvasPulse {
+  0% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(56, 128, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 128, 255, 0); }
+}
+
 ion-card {
-  background: var(--card-bg);
+  background: #1e1e2f; // or use var(--card-bg)
   border-radius: 16px;
+  margin-bottom: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease;
   cursor: pointer;
 
   &:hover {
     transform: scale(1.03);
+    box-shadow: 0 0 12px var(--primary-color);
   }
 
   ion-card-title {
@@ -42,6 +90,33 @@ ion-card {
     border-radius: 12px;
     max-height: 180px;
     object-fit: cover;
+    background-color: #2a2a3d;
   }
+  ion-card img {
+  background-color: #2a2a3d;
+  }
+
+}
+.genre-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 4px;
+  color: #fff;
 }
 
+.genre-badge.arcade { background-color: #ff3c78; }
+.genre-badge.puzzle { background-color: #3dc2ff; }
+.genre-badge.strategy { background-color: #ffc107; }
+.genre-badge.rpg { background-color: #9c27b0; }}
+
+.available-games:hover {
+  box-shadow: 0 0 16px var(--primary-color);
+}
+.available-games {
+  border: 2px solid var(--primary-color);
+  padding: 16px;
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+}
