@@ -1,0 +1,44 @@
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 8px;
+  color: #222;
+}
+
+p {
+  font-size: 16px;
+  margin: 4px 0;
+  color: #444;
+}
+
+strong {
+  color: #3880ff; // Ionic primary color
+}
+.genre-badge {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+@media (min-width: 600px) {
+  ion-content {
+    padding: 24px;
+  }
+}

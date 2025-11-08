@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-game-preview',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   imports: [
     HttpClientModule,
     CommonModule,
+    IonicModule,
   ],
   templateUrl: './game-preview.component.html',
   styleUrls: ['./game-preview.component.scss'],
