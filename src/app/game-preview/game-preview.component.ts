@@ -1,11 +1,15 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-game-preview',
   standalone: true, 
-  imports: [CommonModule], 
+  imports: [
+    HttpClientModule,
+    CommonModule,
+  ],
   templateUrl: './game-preview.component.html',
   styleUrls: ['./game-preview.component.scss'],
 })
