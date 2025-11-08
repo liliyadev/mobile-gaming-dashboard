@@ -21,7 +21,9 @@
 
   <div class="available-games">
     <h2>Available Games</h2>
-
+      <div *ngIf="games.length === 0">
+        No games available. Check your backend or pipe.
+      </div>
     <ion-card *ngFor="let game of games | genreFilter:selectedGenre"> [routerLink]="['/games', game.id]">
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>

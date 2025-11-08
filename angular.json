@@ -41,7 +41,7 @@
                 "output": "./"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["src/global.scss", "src/theme/variables.scss", "src/styles.scss"],
             "scripts": [],
             "browser": "src/main.ts"
           },

@@ -10,12 +10,13 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then(m => m.HomePage),
+    component: GamePreviewComponent,
   },
   {
     path: 'dashboard',
     loadComponent: () => import('./dashboard/dashboard.page').then(m => m.DashboardPage),
   },
+  
   {
     path: 'games',
     component: GamePreviewComponent,
