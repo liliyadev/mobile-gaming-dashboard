@@ -4,6 +4,10 @@ import { GameService } from '../services/game.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { GenreFilterPipe } from '../pipes/genre-filter.pipe';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-game-preview',
@@ -12,6 +16,9 @@ import { IonicModule } from '@ionic/angular';
     HttpClientModule,
     CommonModule,
     IonicModule,
+    FormsModule,
+    RouterModule,
+    GenreFilterPipe
   ],
   templateUrl: './game-preview.component.html',
   styleUrls: ['./game-preview.component.scss'],
@@ -34,6 +41,7 @@ export class GamePreviewComponent implements OnInit {
 
     this.gameService.getGames().subscribe(data => {
       this.games = data;
+      this.genres = [...new Set(this.games.map(game => game.genre))];
     });
   }
 

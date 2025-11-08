@@ -22,7 +22,7 @@
   <div class="available-games">
     <h2>Available Games</h2>
 
-    <ion-card *ngFor="let game of games | genreFilter:selectedGenre" [routerLink]="['/games', game.id]">
+    <ion-card *ngFor="let game of games | genreFilter:selectedGenre"> [routerLink]="['/games', game.id]">
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>
         <ion-card-subtitle>
