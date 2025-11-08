@@ -1,3 +1,4 @@
+<ion-page>
 <ion-header>
   <ion-toolbar>
     <ion-title class="orbitron-title">Game Preview</ion-title>
@@ -24,7 +25,7 @@
       <div *ngIf="games.length === 0">
         No games available. Check your backend or pipe.
       </div>
-    <ion-card *ngFor="let game of games | genreFilter:selectedGenre"> [routerLink]="['/games', game.id]">
+    <ion-card *ngFor="let game of games | genreFilter:selectedGenre" [routerLink]="['/games', game.id]">
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>
         <ion-card-subtitle>
@@ -42,4 +43,4 @@
     <ion-title class="footer-text">Built by Liliya Vildanova...</ion-title>
   </ion-toolbar>
 </ion-footer>
-
+</ion-page>
