@@ -61,3 +61,13 @@ ion-footer.footer {
 }
 ion-footer.footer { outline: 3px dashed lime; z-index:9999; }
 ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
+.trending-badge {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+  display: inline-block;
+}
