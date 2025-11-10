@@ -32,6 +32,10 @@
         <div class="metrics-bar" *ngIf="metrics">
           <p>Total Games: {{ metrics.totalGames }} | Genres: {{ metrics.genres.length }} | Last Updated: {{ metrics.lastUpdated | date:'short' }}</p>
         </div>
+        <div *ngIf="!isLoading && (games | genreFilter:selectedGenre).length === 0" class="empty-state">
+          <p>No games found in this genre.</p>
+        </div>
+
       <ion-card *ngFor="let game of games | genreFilter:selectedGenre" [routerLink]="['/games', game.id]">
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>

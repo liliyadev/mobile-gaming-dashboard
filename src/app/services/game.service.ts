@@ -19,6 +19,10 @@ export class GameService {
     return this.http.get<any[]>(`${this.apiUrl}/games`);
   }
 
+  getMetrics(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/metrics`);
+  }
+
   getGameById(id: string): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/games/${id}`).pipe(
     catchError(error => {

@@ -36,16 +36,23 @@ export class GamePreviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.gameService.getWelcomeMessage().subscribe(response => {
-      this.welcomeMessage = response.message;
-    });
+  this.isLoading = true;
 
-    this.gameService.getGames().subscribe(data => {
-      this.games = data;
-      this.genres = [...new Set(this.games.map(game => game.genre))];
-      this.isLoading = false;
-    });
-  }
+  this.gameService.getWelcomeMessage().subscribe(response => {
+    this.welcomeMessage = response.message;
+  });
+
+  this.gameService.getGames().subscribe(data => {
+    this.games = data;
+    this.genres = [...new Set(this.games.map(game => game.genre))];
+    this.isLoading = false;
+  });
+
+  this.gameService.getMetrics().subscribe(data => {
+    this.metrics = data;
+  });
+}
+
 
   reloadGames(): void {
     this.isLoading = true;
@@ -62,6 +69,12 @@ export class GamePreviewComponent implements OnInit {
     img.style.opacity = '0';
     setTimeout(() => (img.style.opacity = '1'), 100);
   }
+  metrics: {
+  totalGames: number;
+  genres: string[];
+  lastUpdated: string;
+} | null = null;
+
 }
 
 
