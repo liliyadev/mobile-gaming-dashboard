@@ -240,12 +240,14 @@ ion-card:hover {
   background: #1e1e2f;
   color: white;
   text-align: center;
-  padding: 12px;
+  z-index: 10;
 }
 
 .footer-text {
+  text-align: center;
   font-size: 14px;
   color: white;
+  padding: 12px;
 
   a {
     color: #6bc5ff;
@@ -257,4 +259,5 @@ ion-card:hover {
     }
   }
 }
+
 
