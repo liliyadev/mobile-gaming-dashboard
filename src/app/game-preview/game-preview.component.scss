@@ -28,6 +28,7 @@ canvas {
   font-family: 'Orbitron', sans-serif;
   border-bottom: 2px solid var(--primary-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding-bottom: 64px;
 }
 
 .welcome-banner img {
@@ -92,19 +93,6 @@ ion-card {
   }
   
 }
-.genre-badge {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  display: inline-block;
-  margin-top: 4px;
-  color: #fff;
-}
-
-.genre-badge.arcade { background-color: #ff3c78; }
-.genre-badge.puzzle { background-color: #3dc2ff; }
-.genre-badge.strategy { background-color: #ffc107; }
-.genre-badge.rpg { background-color: #9c27b0; }
 
 .available-games:hover {
   box-shadow: 0 0 16px var(--primary-color);
@@ -259,5 +247,55 @@ ion-card:hover {
   letter-spacing: 1px;
   font-weight: 500;
 }
+ion-button {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.game-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px var(--primary-color);
+  }
+}
+.trending-badge {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+  display: inline-block;
+}
+.tooltip {
+  position: relative;
+  cursor: help;
+
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
 
 

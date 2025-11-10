@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.responses import Response
+from pydantic import BaseModel
+
 
 app = FastAPI()
 
@@ -16,6 +19,24 @@ app.add_middleware(
 
 # ✅ Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+class Game(BaseModel):
+    name: str
+    genre: str
+    description: str
+    thumbnailUrl: str
+
+@app.post("/games")
+def add_game(game: Game):
+    new_id = max(g["id"] for g in games) + 1
+    new_game = game.dict()
+    new_game["id"] = new_id
+    new_game["playCount"] = 0
+    games.append(new_game)
+    return new_game
+
+@app.get("/favicon.ico")
+def favicon():
+    return FileResponse("static/favicon.ico", headers={"Cache-Control": "max-age=86400"})
 
 # ✅ Serve favicon
 @app.get("/favicon.ico")
@@ -50,13 +71,15 @@ games = [
         "name": "Space Invaders",
         "genre": "Arcade",
         "description": "Classic alien shooter game.",
-        "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/space-invaders.png"
+        "playCount": 150,
+        "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/space-invaders.png",
     },
     {
         "id": 2,
         "name": "Puzzle Quest",
         "genre": "Puzzle",
         "description": "Solve puzzles to advance through quests.",
+        "playCount": 130,
         "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/puzzle-quest.png"
     },
     {
@@ -64,6 +87,7 @@ games = [
         "name": "Speed Racer",
         "genre": "Racing",
         "description": "High-speed futuristic racing game.",
+        "playCount": 140,
         "thumbnailUrl": "https://calm-concha-fa16ba.netlify.app/assets/speed-racer.png"
     }
 ]

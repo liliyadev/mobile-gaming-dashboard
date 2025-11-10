@@ -1,20 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="orbitron-title">{{ game?.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ game?.name || 'Game Details' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-spinner *ngIf="!game" name="crescent"></ion-spinner>
-
-  <div class="game-detail" *ngIf="game">
-    <img [src]="game.thumbnailUrl" alt="{{ game.name }} thumbnail" (error)="onImageError($event)" />
-    <h2>{{ game.genre }}</h2>
-    <p>{{ game.description }}</p>
-  </div>
-
-  <ion-button fill="clear" routerLink="/games">
-    ← Back to Dashboard
-  </ion-button>
+<ion-content *ngIf="game" class="game-detail">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ game.name }}</ion-card-title>
+      <ion-card-subtitle>
+        <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">
+          {{ game.genre }}
+        </span>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="game.thumbnailUrl" (error)="onImageError($event)" alt="{{ game.name }} thumbnail" />
+      <p>{{ game.description || 'No description available.' }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-

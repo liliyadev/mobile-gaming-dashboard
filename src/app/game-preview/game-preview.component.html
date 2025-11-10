@@ -11,6 +11,7 @@
 
   <div class="hero-section">
     <img src="assets/pixel-mascot.gif" alt="Mascot" />
+    <img src="assets/gamepad-icon.png" alt="Gamepad" />
     <h1>Choose your next adventure.</h1>
     <p>Built for speed, style, and scalability.</p>
   </div>
@@ -18,7 +19,7 @@
   <ion-segment [(ngModel)]="selectedGenre">
     <ion-segment-button *ngFor="let genre of genres" [value]="genre">{{ genre }}</ion-segment-button>
   </ion-segment>
-<hr class="section-divider" />
+
   <div class="available-games">
   <h2>Available Games</h2>
 
@@ -36,23 +37,42 @@
           <p>No games found in this genre.</p>
         </div>
 
-      <ion-card *ngFor="let game of games | genreFilter:selectedGenre" [routerLink]="['/games', game.id]">
+      <ion-card
+        *ngFor="let game of games | genreFilter:selectedGenre"
+        class="game-card"
+        [title]="game.description || 'No description available'"
+        (click)="trackPlay(game.id)"
+        [routerLink]="['/games', game.id]"
+      >
+
       <ion-card-header>
         <ion-card-title>{{ game.name }}</ion-card-title>
         <ion-card-subtitle>
-          <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">
-            {{ game.genre }}
-          </span>
+      <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">
+        {{ game.genre }}
+      </span>
+
+      <span *ngIf="game.playCount > 100" class="trending-badge">🔥 Trending</span>
 
         </ion-card-subtitle>
-
       </ion-card-header>
+
       <ion-card-content>
         <img [src]="game.thumbnailUrl" (error)="onImageError($event)" alt="{{ game.name }} thumbnail" />
       </ion-card-content>
+      <ion-button
+        expand="block"
+        color="primary"
+        [routerLink]="['/games', game.id]"
+        (click)="trackPlay(game.id)"
+      >
+        ▶️ Play {{ game.name }}
+      </ion-button>
+
     </ion-card>
   </div>
 </ion-content>
+
 <ion-footer class="footer">
   <ion-toolbar>
     <div class="footer-text">
