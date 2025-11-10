@@ -8,23 +8,38 @@ import { GameService } from '../services/game.service';
 @Component({
   selector: 'app-game-detail',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, IonicModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    IonicModule
+  ],
   templateUrl: './game-detail.component.html',
-  styleUrls: ['./game-detail.component.scss'],
+  styleUrls: ['./game-detail.component.scss']
 })
 export class GameDetailComponent implements OnInit {
   game: any;
-  loading = true;
 
-  constructor(private route: ActivatedRoute, private gameService: GameService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private gameService: GameService
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.gameService.getGameById(id).subscribe(data => {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const gameId = idParam ? Number(idParam) : null;
+
+    if (gameId !== null && !isNaN(gameId)) {
+      this.gameService.getGameById(String(gameId)).subscribe(data => {
         this.game = data;
-        this.loading = false;
       });
+
+    } else {
+      console.error('Invalid game ID:', idParam);
     }
+  }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/placeholder.png';
   }
 }

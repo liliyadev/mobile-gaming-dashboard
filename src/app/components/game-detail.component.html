@@ -5,9 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <div class="game-detail">
-    <img [src]="game?.thumbnailUrl" alt="{{ game?.name }} thumbnail" />
-    <h2>{{ game?.genre }}</h2>
-    <p>{{ game?.description }}</p>
+  <ion-spinner *ngIf="!game" name="crescent"></ion-spinner>
+
+  <div class="game-detail" *ngIf="game">
+    <img [src]="game.thumbnailUrl" alt="{{ game.name }} thumbnail" (error)="onImageError($event)" />
+    <h2>{{ game.genre }}</h2>
+    <p>{{ game.description }}</p>
   </div>
+
+  <ion-button fill="clear" routerLink="/games">
+    ← Back to Dashboard
+  </ion-button>
 </ion-content>
+

@@ -22,8 +22,10 @@ export const routes: Routes = [
     component: GamePreviewComponent,
   },
   {
-    path: 'games/:id',
-    component: GameDetailComponent,
-  }
+  path: 'games/:id',
+  loadComponent: () =>
+    import('./components/game-detail.component').then(m => m.GameDetailComponent),
+}
+
 ];
 

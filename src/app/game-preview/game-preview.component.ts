@@ -28,6 +28,7 @@ export class GamePreviewComponent implements OnInit {
   welcomeMessage: string = '';
   selectedGenre: string = '';
   genres: string[] = ['Arcade', 'Puzzle', 'Strategy', 'RPG'];
+  isLoading = true;
 
   constructor(
     private gameService: GameService,
@@ -42,7 +43,13 @@ export class GamePreviewComponent implements OnInit {
     this.gameService.getGames().subscribe(data => {
       this.games = data;
       this.genres = [...new Set(this.games.map(game => game.genre))];
+      this.isLoading = false;
     });
+  }
+
+  reloadGames(): void {
+    this.isLoading = true;
+    this.ngOnInit();
   }
 
   goToGameDetail(id: number): void {
@@ -50,7 +57,11 @@ export class GamePreviewComponent implements OnInit {
   }
 
   onImageError(event: Event) {
-    (event.target as HTMLImageElement).src = 'assets/placeholder.png';
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/placeholder.png';
+    img.style.opacity = '0';
+    setTimeout(() => (img.style.opacity = '1'), 100);
   }
 }
+
 

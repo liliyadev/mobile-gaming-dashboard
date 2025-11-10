@@ -5,26 +5,6 @@ ion-content {
   text-align: center;
 }
 
-img {
-  width: 80%;
-  max-width: 300px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-  font-size: 24px;
-  margin-top: 8px;
-  color: #222;
-}
-
-p {
-  font-size: 16px;
-  margin: 4px 0;
-  color: #444;
-}
-
 strong {
   color: #3880ff; // Ionic primary color
 }
@@ -51,3 +31,37 @@ strong {
   display: inline-block;
   margin-bottom: 8px;
 }
+.game-detail {
+  padding: 24px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin: 16px;
+
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 12px var(--primary-color);
+    background-color: #2a2a3d;
+  }
+
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #6bc5ff;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+  }
+}
+img {
+  animation: bounce 2s infinite ease-in-out;
+}
+

@@ -127,21 +127,126 @@ ion-card {
   background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
   color: #fff;
   font-family: 'Orbitron', sans-serif;
-
-  img {
-    width: 120px;
-    animation: bounce 2s infinite ease-in-out;
-  }
+}
+.hero-section img {
+  animation: bounce 2s infinite;
+  width: 120px;
+}
 
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-10px); }
   }
-}
 .footer {
+  position: sticky;
+  bottom: 0;
   background: #1e1e2f;
-  color: #fff;
+  color: white;
   text-align: center;
-  font-size: 14px;
-  padding: 8px;
 }
+ion-segment-button.arcade {
+  background-color: #ff6b6b;
+}
+ion-segment-button.puzzle {
+  background-color: #6bc5ff;
+}
+ion-segment-button.rpg {
+  background-color: #a66bff;
+}
+
+ion-segment-button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+ion-segment-button.ion-activated {
+  border: 2px solid #fff;
+}
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #ff6b6b, #6bc5ff);
+  margin: 2rem 0;
+}
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #ff6b6b, #6bc5ff);
+  margin: 2rem 0;
+}
+
+.metrics-bar {
+  background-color: #f4f4f4;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+.loading-text {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+.orbitron-title {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.metrics-bar {
+  background-color: #f4f4f4;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.loading-text {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.genre-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+
+  &.arcade { background-color: #ff6b6b; }
+  &.puzzle { background-color: #6bc5ff; }
+  &.rpg { background-color: #a66bff; }
+  &.strategy { background-color: #4caf50; }
+}
+
+
+ion-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+ion-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #1e1e2f;
+  color: white;
+  text-align: center;
+}
+
