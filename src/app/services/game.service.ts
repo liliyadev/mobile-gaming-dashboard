@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GameService {
-  private apiUrl = 'https://mobile-gaming-backend.onrender.com'; 
+  private apiUrl = 'https://mobile-gaming-backend.onrender.com/games'; 
   constructor(private http: HttpClient) {}
 
   getGames(): Observable<any[]> {
@@ -21,21 +21,21 @@ export class GameService {
     );
   }
 
+  logGameClick(id: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${id}/track`, {}).pipe(
+      catchError(this.handleError<any>('logGameClick'))
+    );
+  }
+
   getWelcomeMessage(): Observable<{ message: string }> {
-    return this.http.get<{ message: string }>(`${this.apiUrl}/welcome`).pipe(
+    return this.http.get<{ message: string }>('https://mobile-gaming-backend.onrender.com/welcome').pipe(
       catchError(this.handleError<{ message: string }>('getWelcomeMessage', { message: 'Welcome!' }))
     );
   }
 
   getMetrics(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/metrics`).pipe(
+    return this.http.get<any>('https://mobile-gaming-backend.onrender.com/metrics').pipe(
       catchError(this.handleError<any>('getMetrics'))
-    );
-  }
-
-  logGameClick(id: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${id}/track`, {}).pipe(
-      catchError(this.handleError<any>('logGameClick'))
     );
   }
 

@@ -8,10 +8,9 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# ✅ CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace with Netlify domain in production
+    allow_origins=["https://calm-concha-fa16ba.netlify.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,11 +36,6 @@ def add_game(game: Game):
 @app.get("/favicon.ico")
 def favicon():
     return FileResponse("static/favicon.ico", headers={"Cache-Control": "max-age=86400"})
-
-# ✅ Serve favicon
-@app.get("/favicon.ico")
-def favicon():
-    return FileResponse("static/favicon.ico")
 
 # ✅ Root route
 @app.get("/")
