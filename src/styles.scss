@@ -71,3 +71,55 @@ ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
   margin-left: 8px;
   display: inline-block;
 }
+.trending-badge {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+  display: inline-block;
+}
+.game-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px var(--primary-color);
+  }
+}
+.genre-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+
+  &.arcade { background-color: #ff6b6b; }
+  &.puzzle { background-color: #6bc5ff; }
+  &.rpg { background-color: #a66bff; }
+  &.strategy { background-color: #4caf50; }
+}
+.metrics-bar {
+  background-color: #f4f4f4;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+.footer-text {
+  font-size: 14px;
+  color: white;
+
+  a {
+    color: #6bc5ff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #ff6b6b;
+    }
+  }
+}
