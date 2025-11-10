@@ -235,29 +235,29 @@ ion-card:hover {
 }
 
 .footer {
-  position: sticky;
-  bottom: 0;
-  background: #1e1e2f;
+  background-color: #1e1e2f; // dark background
   color: white;
+  padding: 12px;
   text-align: center;
-  z-index: 10;
 }
 
 .footer-text {
-  text-align: center;
   font-size: 14px;
   color: white;
-  padding: 12px;
 
   a {
     color: #6bc5ff;
     text-decoration: underline;
-    transition: color 0.3s ease;
 
     &:hover {
       color: #ff6b6b;
     }
   }
+}
+.orbitron-title {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
 
