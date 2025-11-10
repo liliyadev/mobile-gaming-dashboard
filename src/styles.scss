@@ -13,6 +13,51 @@ ion-segment-button {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
-body {
-  font-family: 'Orbitron', sans-serif;
+body, ion-app, ion-content, .footer-text {
+  font-family: 'Orbitron', sans-serif !important;
 }
+
+/* src/styles.scss — add near the top after Ionic imports */
+ion-footer.footer {
+  --background: #1e1e2f; /* ensures Ionic footer background is dark */
+  z-index: 9999;
+  pointer-events: auto;
+  display: block;
+}
+
+/* target the footer content inside Ionic shadow DOM */
+ion-footer.footer .footer-text,
+ion-footer.footer ::slotted(.footer-text) {
+  font-family: 'Orbitron', sans-serif !important;
+  color: #ffffff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  pointer-events: auto !important;
+}
+
+ion-footer.footer .footer-text a,
+ion-footer.footer ::slotted(.footer-text) a {
+  color: #6bc5ff !important;
+  text-decoration: underline;
+  pointer-events: auto !important;
+}
+
+/* debugging helpers — remove after confirm working */
+ion-footer.footer { outline: 2px dashed lime !important; }
+
+:host ::ng-deep ion-footer.footer .footer-text {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff !important;
+}
+:host ::ng-deep ion-footer.footer .footer-text a {
+  color: #6bc5ff !important;
+  pointer-events: auto !important;
+}
+ion-footer.footer {
+  --background: #1e1e2f;
+}
+ion-footer.footer { outline: 3px dashed lime; z-index:9999; }
+ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
