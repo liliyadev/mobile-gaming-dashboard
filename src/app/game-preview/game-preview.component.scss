@@ -50,6 +50,8 @@ canvas {
   background-color: #2a2a3d;
   color: #fff;
   margin-top: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes pulse {
@@ -201,8 +203,8 @@ ion-card:hover {
 }
 
 .footer {
-  background-color: #1e1e2f; // dark background
-  color: white;
+  background-color: #f4f4f4;
+  color: #000;
   padding: 12px;
   text-align: center;
 }

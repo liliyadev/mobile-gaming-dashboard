@@ -111,8 +111,9 @@ ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
   color: #333;
 }
 .footer-text {
-  font-size: 14px;
-  color: white;
+  color: #000;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 
   a {
     color: #6bc5ff;
@@ -178,6 +179,8 @@ ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
+  max-width: 1200px;
+  width: 100%;
 }
 .card-info h2 {
   font-size: 20px;
