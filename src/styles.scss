@@ -40,7 +40,7 @@ ion-footer.footer ::slotted(.footer-text) {
 
 ion-footer.footer .footer-text a,
 ion-footer.footer ::slotted(.footer-text) a {
-  color: #6bc5ff !important;
+  color: #000 !important;
   text-decoration: underline;
   pointer-events: auto !important;
 }
@@ -53,7 +53,7 @@ ion-footer.footer { outline: 2px dashed lime !important; }
   color: #fff !important;
 }
 :host ::ng-deep ion-footer.footer .footer-text a {
-  color: #6bc5ff !important;
+  color: #000 !important;
   pointer-events: auto !important;
 }
 ion-footer.footer {
@@ -110,6 +110,12 @@ ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
   font-size: 0.9rem;
   color: #333;
 }
+  .footer {
+    background-color: #f4f4f4;
+    color: #000;
+    padding: 12px;
+    text-align: center;
+  }
 .footer-text {
   color: #000;
   text-decoration: underline;
@@ -177,11 +183,12 @@ ion-footer.footer .footer-text { background: rgba(0,0,0,0.1); }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 16px;
 }
 .card-info h2 {
   font-size: 20px;
