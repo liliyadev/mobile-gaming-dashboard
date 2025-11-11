@@ -33,40 +33,49 @@
         <div *ngIf="!isLoading && (games | genreFilter:selectedGenre).length === 0" class="empty-state">
           <p>No games found in this genre.</p>
         </div>
+  <div class="game-grid">
+    <ion-card
+      *ngFor="let game of games | genreFilter:selectedGenre"
+      class="game-card"
+      [title]="game.description || 'No description available'"
+      (click)="trackPlay(game.id)"
+      [routerLink]="['/games', game.id]"
+    >
 
-      <ion-card
-        *ngFor="let game of games | genreFilter:selectedGenre"
-        class="game-card"
-        [title]="game.description || 'No description available'"
-        (click)="trackPlay(game.id)"
-        [routerLink]="['/games', game.id]"
-      >
+      <!-- 🖼️ Thumbnail -->
+      <div class="card-thumbnail">
+        <img [src]="game.thumbnailUrl" (error)="onImageError($event)" alt="{{ game.name }} thumbnail" />
+      </div>
 
-      <ion-card-header>
+      <!-- 📝 Title + Genre -->
+      <div class="card-info">
         <ion-card-title>{{ game.name }}</ion-card-title>
         <ion-card-subtitle>
-      <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">
-        {{ game.genre }}
-      </span>
-
-      <span *ngIf="game.playCount > 100" class="trending-badge">🔥 Trending</span>
-
+          <span class="genre-badge" [ngClass]="game.genre.toLowerCase()">
+            {{ game.genre }}
+          </span>
         </ion-card-subtitle>
-      </ion-card-header>
+      </div>
 
-      <ion-card-content>
-        <img [src]="game.thumbnailUrl" (error)="onImageError($event)" alt="{{ game.name }} thumbnail" />
-      </ion-card-content>
-      <ion-button
-        expand="block"
-        color="primary"
-        [routerLink]="['/games', game.id]"
-        (click)="trackPlay(game.id)"
-      >
-        ▶️ Play {{ game.name }}
-      </ion-button>
+      <!-- 🔥 Settings Row -->
+      <div class="card-settings">
+        <span *ngIf="game.playCount > 100" class="trending-badge">🔥 Trending</span>
+      </div>
+
+      <!-- 🎮 Play Button -->
+      <div class="card-action">
+        <ion-button
+          expand="block"
+          color="primary"
+          [routerLink]="['/games', game.id]"
+          (click)="trackPlay(game.id)"
+        >
+          ▶️ Play {{ game.name }}
+        </ion-button>
+      </div>
 
     </ion-card>
+  </div>
   </div>
 </ion-content>
 

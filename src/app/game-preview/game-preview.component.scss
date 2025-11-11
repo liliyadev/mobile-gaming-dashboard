@@ -244,5 +244,93 @@ ion-button {
   }
 }
 
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: #1e1e2f;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px var(--primary-color);
+  }
+
+  ion-card-title {
+    font-size: 20px;
+    color: #fff;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  ion-card-subtitle {
+    color: #aaa;
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .card-thumbnail img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: #2a2a3d;
+  }
+
+  .card-info,
+  .card-settings,
+  .card-action {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .card-action ion-button {
+    margin-top: 12px;
+    font-weight: bold;
+  }
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card-info h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-top: 12px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.card-info p {
+  color: #aaa;
+  margin-top: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+.card-thumbnail img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #2a2a3d;
+}
+.card-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.card-action ion-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
 
 
